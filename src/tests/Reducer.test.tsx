@@ -19,7 +19,7 @@ test("Should set the data ", () => {
       }]));
     let state = Store.getState().data
     //  expect(state).toStrictEqual({data:[]})
-    const question = state.data.find((val) => val.id === 0);
+    const question = state.questionList.find((val) => val.id === 0);
     expect(question?.questionNo).toBe(1);
     expect(question?.correctAnswer).toBe("this.state");
     expect(question?.question).toBe("How can you access the state of a component from inside of a member function?");
@@ -40,7 +40,7 @@ test("checking the answer value",() =>{
   },]));
 Store.dispatch(isAnswered(0))
 const state = Store.getState().data
-const question = state.data.find(val => val.id === 1);
+const question = state.questionList.find(val => val.id === 1);
 expect(question?.isAnswer).toEqual(true)
 })
 
@@ -59,7 +59,7 @@ test("check adding selected Answer",() =>{
   }]));
 Store.dispatch(addAnswer({id:0,value:"Facebook Engineers"}))
 const state = Store.getState().data
-const question = state.data.find(val => val.id === 1);
+const question = state.questionList.find(val => val.id === 1);
 expect(question?.answerValue).toEqual("Facebook Engineers")
 })
 
@@ -131,6 +131,6 @@ test("checking multiOption",() =>{
 ));
 Store.dispatch(addMultiOption(["React can be used on client and as well as server side too"]))
 const state = Store.getState().data
-const question = state.data.find(val => val.id === 4);
+const question = state.questionList.find(val => val.id === 4);
 expect(question?.answerValue).toEqual(["React can be used on client and as well as server side too"])
 })
