@@ -6,6 +6,7 @@ import Question from './Pages/Question'
 function App() {
   return (
     <Router>
+    <h1 style={{textAlign:'center'}}> Online MCQ App </h1>
     <Routes>
  <Route path="/" element ={<StartPage/>}  />
  <Route path="/Question/:id" element ={<Question/>}  />
@@ -15,3 +16,4 @@ function App() {
 }
 
 export default App;
+   

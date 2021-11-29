@@ -17,8 +17,8 @@ import {
   addAnswer,
   addMultiOption,
   fifthAnswer,
-} from "../Redux/Slice";
-import ResultModal from "./ResultModal";
+} from "../Redux/Reducer"
+import ResultModal from './ResultModal';
 import React from "react";
 
 const Question = () => {
@@ -64,9 +64,16 @@ const Question = () => {
     setSelectedIndex((prev) => prev - 1);
     navigate(`/Question/${data[selectedIndex].questionNo - 1}`);
   };
+
+
+
+
+
   const [result, setResult] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [correct, setCorrect] = useState(0);
+
+
   const ansArray: any = [];
   const finalSubmit = () => {
     setShowModal(true);
@@ -177,7 +184,7 @@ const Question = () => {
                       style={{ margin: "0.8rem" }}
                     />
                   );
-                })}``
+                })}
             </RadioGroup>
           </FormControl>
         </Box>

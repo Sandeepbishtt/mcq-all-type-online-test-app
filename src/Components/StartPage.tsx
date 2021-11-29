@@ -4,7 +4,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import McqData from "../Data/McqData";
 import { useDispatch } from "react-redux";
-import { addData } from "../Redux/Slice";
+import { addData } from "../Redux/Reducer";
 const classes = {
   form: {
     marginLeft: "1.1rem",
@@ -23,18 +23,13 @@ const classes = {
   },
 };
 
+
 const StartPage: React.FC = () => {
-  const [gender, setGender] = React.useState("");
   const [lang, setLang] = React.useState("");
-  const [input, setInput] = React.useState("")
   const navigate = useNavigate();
  const dispatch = useDispatch()
 
-  const genderChange = (event: SelectChangeEvent) => {
-    setGender(event.target.value as string);
-  };
-
-  const langChange = (event: SelectChangeEvent) => {
+const langChange = (event: SelectChangeEvent) => {
     setLang(event.target.value as string);
   };
 
@@ -50,7 +45,6 @@ const StartPage: React.FC = () => {
 
   return (
     <>
-      <h1 style={classes.h1Style}>Online MCQ</h1>
       <Box
         border={1}
         borderColor="grey.500"
@@ -69,17 +63,13 @@ const StartPage: React.FC = () => {
             className="form-control"
             placeholder="Name"
             name="username"
-            value={input}
-            onChange={(e)=> setInput(e.target.value)}
           />
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
           <Select
             style={classes.Input}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={gender}
             label="Gender"
-            onChange={genderChange}
             required
           >
             <MenuItem value={10}>Male</MenuItem>
@@ -97,7 +87,7 @@ const StartPage: React.FC = () => {
             required
           >
             <MenuItem value="english">English</MenuItem>
-            <MenuItem value="hindi">Hindi</MenuItem>
+            {<MenuItem value="french">French</MenuItem>}
           </Select>
           <Button
           data-testid = "button"

@@ -59,4 +59,4 @@ const ResultModal = (props:any) => {
   );
 }
 
-export default ResultModal
+export default ResultModal;
